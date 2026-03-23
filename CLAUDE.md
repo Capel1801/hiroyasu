@@ -6,7 +6,7 @@ HiroyasuのパーソナルハブWebサイト。Vite + React + TypeScript + Frame
 GitHub Pages で無料ホスティング。mainにpushで自動デプロイ。
 
 **本番URL:** https://capel1801.github.io/hiroyasu/
-**リポジトリ:** https://github.com/Capel1801/hiroyasu
+**リポジトリ:** https://github.com/cgchiroyasu-dev/hiroyasu
 
 ---
 

@@ -13,10 +13,10 @@ export const siteConfig = {
   // 連絡先・SNS（空文字にするとリンクが非表示になります）
   email: "",
   links: {
-    github: "https://github.com/Capel1801",
-    instagram: "",
-    twitter: "",
-    youtube: "",
+    github: "https://github.com/cgchiroyasu-dev",
+    instagram: "https://www.instagram.com/cgchiroyasu/",
+    twitter: "https://x.com/cgchiroyasu",
+    youtube: "https://www.youtube.com/channel/UCMOKob27WSQi5jdRJmdawCQ",
   },
 
   // 使用ツール一覧（Aboutセクションに表示）
@@ -24,9 +24,10 @@ export const siteConfig = {
     "TouchDesigner",
     "GLSL",
     "React / Next.js",
-    "Vite",
+    "Blender",
     "Ableton Live",
-    "Figma",
+    "Unreal Engine",
+    "TidalCycles",
   ],
 
   // 仕事依頼受付中フラグ（trueにするとAboutに表示）
