@@ -1,24 +1,6 @@
 import { motion } from 'framer-motion'
 import { siteConfig } from '../config/site'
-
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.3,
-    },
-  },
-}
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 32 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] },
-  },
-}
+import BlurText from './BlurText'
 
 const dotVariants = {
   hidden: { opacity: 0, scale: 0 },
@@ -44,23 +26,45 @@ export default function Hero() {
       </motion.div>
 
       {/* Main content */}
-      <motion.div
-        className="hero-content"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        <motion.h1 className="hero-title" variants={itemVariants}>
-          {siteConfig.name}
-        </motion.h1>
-        <motion.p className="hero-tagline" variants={itemVariants}>
+      <div className="hero-content">
+        {/* Badge */}
+        <motion.div
+          className="hero-badge liquid-glass"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <span className="hero-badge-dot" />
           {siteConfig.tagline}
+        </motion.div>
+
+        {/* BlurText title */}
+        <BlurText
+          text={siteConfig.name}
+          as="h1"
+          className="hero-title"
+          delay={120}
+        />
+
+        <motion.p
+          className="hero-tagline"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        >
+          TouchDesigner, GLSL, Web — the intersection of code and live visual art.
         </motion.p>
-        <motion.div className="hero-scroll" variants={itemVariants}>
+
+        <motion.div
+          className="hero-scroll"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.9 }}
+        >
           <div className="hero-scroll-line" />
           <span className="hero-scroll-label">Scroll</span>
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   )
 }

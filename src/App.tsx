@@ -3,6 +3,7 @@ import Hero from './components/Hero'
 import Works from './components/Works'
 import Lab from './components/Lab'
 import About from './components/About'
+import CtaSection from './components/CtaSection'
 import Footer from './components/Footer'
 
 export default function App() {
@@ -14,6 +15,7 @@ export default function App() {
         <Works />
         <Lab />
         <About />
+        <CtaSection />
       </main>
       <Footer />
     </>

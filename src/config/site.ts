@@ -33,4 +33,12 @@ export const siteConfig = {
   // 仕事依頼受付中フラグ（trueにするとAboutに表示）
   availableForWork: true,
   availableMessage: "VJ出演・映像演出・アートワーク制作のご依頼受付中",
+
+  // Aboutセクションのスタッツ
+  stats: [
+    { value: '2022', label: 'Started' },
+    { value: '10+', label: 'Projects' },
+    { value: '5+', label: 'Live Events' },
+    { value: '3', label: 'Tech Stacks' },
+  ],
 } as const

@@ -25,10 +25,12 @@ git push         # → GitHub Actions が自動デプロイ
 
 | ファイル | 役割 |
 |---------|------|
-| `src/config/site.ts` | **サイト設定の唯一の場所**。名前・bio・SNS・ツール・メールを管理 |
+| `src/config/site.ts` | **サイト設定の唯一の場所**。名前・bio・SNS・ツール・メール・stats を管理 |
 | `src/data/works.ts` | Works セクションの作品データ |
 | `src/data/lab.ts` | Lab/Archive セクションのデータ |
 | `src/styles/globals.css` | デザイントークン（CSS変数）＋全コンポーネントのスタイル |
+| `src/components/BlurText.tsx` | 単語ごとのblur→clear reveal アニメーション（`as` propでh1等に対応） |
+| `src/components/CtaSection.tsx` | 末尾CTAセクション（大見出し＋Contact/Works ボタン） |
 | `vite.config.ts` | `base: '/hiroyasu/'` が必須（GitHub Pages のパス設定） |
 | `.github/workflows/deploy.yml` | push → build → deploy の自動パイプライン |
 
@@ -40,8 +42,9 @@ git push         # → GitHub Actions が自動デプロイ
 - **トーン:** Maximalist × Minimal — 削ぎ落とした構造の中に映像体験を入れる
 - **差別化:** テキスト最小限、映像・作品が主役
 - **カラー:** BG `#0A0A0A`, Text `#F0EDE8`, Accent `#CDFF00`（電気ライム）
-- **フォント:** Display: `Syne 800`, Body: `DM Sans 400`（Google Fonts）
+- **フォント:** `Instrument Serif italic`（大見出し・Hero・Work title）+ `Syne 800`（ラベル・Nav）+ `DM Sans`（本文）
 - **スペーシング:** Fibonacci数列ベース（8, 13, 21, 34, 55, 89px）
+- **グラスエフェクト:** `.liquid-glass`（blur 4px、subtle）/ `.liquid-glass-strong`（blur 50px、prominent）— Nav pill・Badge・CTAボタンに使用
 
 ### 禁止事項（Anti-AI-Slop）
 - Purple-to-blueグラデーション禁止

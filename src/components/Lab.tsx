@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { labItems } from '../data/lab'
+import { labItems, type LabItem } from '../data/lab'
 
 const gridVariants = {
   hidden: {},
@@ -17,11 +17,55 @@ const itemVariants = {
   },
 }
 
+function LabCard({ item }: { item: LabItem }) {
+  const href = item.embedUrl || item.instagramUrl
+  const wrapperClass = href ? 'lab-item-link' : 'lab-item'
+
+  const inner = (
+    <>
+      <div className="lab-thumbnail">
+        {item.thumbnailUrl ? (
+          <img src={item.thumbnailUrl} alt={item.title} loading="lazy" />
+        ) : (
+          <div className="lab-thumbnail-placeholder">{item.date}</div>
+        )}
+      </div>
+      <div className="lab-meta">
+        <span className="lab-title">{item.title}</span>
+        {item.description && (
+          <span className="lab-desc">{item.description}</span>
+        )}
+        <span className="lab-date">{item.date}</span>
+      </div>
+    </>
+  )
+
+  if (href) {
+    return (
+      <motion.a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={wrapperClass}
+        variants={itemVariants}
+      >
+        {inner}
+      </motion.a>
+    )
+  }
+
+  return (
+    <motion.div className={wrapperClass} variants={itemVariants}>
+      {inner}
+    </motion.div>
+  )
+}
+
 export default function Lab() {
   return (
     <section id="lab" className="section">
       <div className="section-header">
-        <span className="section-label">Lab / Archive</span>
+        <span className="section-badge liquid-glass">Lab / Archive</span>
       </div>
 
       <motion.div
@@ -32,24 +76,7 @@ export default function Lab() {
         viewport={{ once: true, margin: '-60px' }}
       >
         {labItems.map(item => (
-          <motion.div key={item.id} className="lab-item" variants={itemVariants}>
-            <div className="lab-thumbnail">
-              {item.thumbnailUrl ? (
-                <img src={item.thumbnailUrl} alt={item.title} loading="lazy" />
-              ) : (
-                <div className="lab-thumbnail-placeholder">
-                  {item.date}
-                </div>
-              )}
-            </div>
-            <div className="lab-meta">
-              <span className="lab-title">{item.title}</span>
-              {item.description && (
-                <span className="lab-desc">{item.description}</span>
-              )}
-              <span className="lab-date">{item.date}</span>
-            </div>
-          </motion.div>
+          <LabCard key={item.id} item={item} />
         ))}
       </motion.div>
     </section>
