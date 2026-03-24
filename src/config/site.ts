@@ -5,7 +5,7 @@
 
 export const siteConfig = {
   // 基本情報
-  name: "Hiroyasu",
+  name: "cgchiroyasu",
   tagline: "Visual Artist & Developer",
   bio: "TouchDesigner, GLSL, Webの交差点でリアルタイム表現を作るクリエイター。VJ、インタラクティブアート、プロダクト開発。",
   location: "Tokyo, Japan",
